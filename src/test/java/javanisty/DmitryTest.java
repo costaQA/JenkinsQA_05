@@ -14,7 +14,7 @@ public class DmitryTest extends BaseTest {
 
     @Test
     public void test1(){
-        open("");
+        open("https://calc.by/building-calculators/laminate.html");
         enter("ln_room_id", "820");
         enter("wd_room_id","820");
         enter("ln_lam_id", "1600");
