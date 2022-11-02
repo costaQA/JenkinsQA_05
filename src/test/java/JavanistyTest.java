@@ -4,6 +4,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -23,6 +24,9 @@ public class JavanistyTest extends BaseTest {
         select.selectByValue("2");
         enter("min_length_segment_id", "300");
         enter("indent_walls_id","5");
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        WebElement Element = getDriver().findElement(By.id("direction-laminate-id1"));
+        js.executeScript("arguments[0].scrollIntoView();", Element);
         getDriver().findElement(By.id("direction-laminate-id1")).click();
         getDriver().findElement(By.cssSelector("[class='calc-btn']")).click();
 
@@ -75,5 +79,21 @@ public class JavanistyTest extends BaseTest {
         String actualConfirmationMessage = confirmationMessage.getText();
 
         Assert.assertEquals(expectedConfirmationMessage, actualConfirmationMessage);
+    }
+    @Test
+    public void testBdoWarrior2() throws InterruptedException {
+        getDriver().get("https://bdocodex.com/ru/skillbuilder/");
+        Thread.sleep(1000);
+        WebElement buttobWarrior = getDriver().findElement(By.xpath("//div[@class='class_cell'][1]/*"));
+        buttobWarrior.click();
+        Thread.sleep(1000);
+        WebElement buttonSkillAbsolute = getDriver().findElement(By.xpath
+                ("//div[@data-gid=\"618\"]"));
+        buttonSkillAbsolute.click();
+        Thread.sleep(1000);
+        WebElement counter = getDriver().findElement(By.xpath
+                ("//tr[4]//descendant::div[@class='level_cell current_level']"));
+        String counterValue = counter.getText();
+        Assert.assertEquals(counterValue, "10");
     }
 }
