@@ -13,10 +13,10 @@ public class SpiritMastersTest extends BaseTest {
 
         getDriver().get("https://www.toolsqa.com/selenium-training/");
 
-        WebElement toolsQAHeader= getDriver().findElement(By.xpath("//div[@class='col-auto']//li[3]"));
+        WebElement toolsQAHeader = getDriver().findElement(By.xpath("//div[@class='col-auto']//li[3]"));
         toolsQAHeader.click();
 
-        for(String tab : getDriver().getWindowHandles()) {
+        for (String tab : getDriver().getWindowHandles()) {
             getDriver().switchTo().window(tab);
         }
         getDriver().findElement(By.xpath("//div[@class='card-body']/h5")).click();
@@ -77,5 +77,13 @@ public class SpiritMastersTest extends BaseTest {
         WebElement link = getDriver().findElement(By.xpath("//li/a[@href='/autocomplete']"));
 
         Assert.assertEquals(link.getText(), "Autocomplete");
+    }
+
+    @Test
+    public void checkButtonsLink_AFedorova_Test() {
+        getDriver().get("https://formy-project.herokuapp.com/");
+        WebElement link = getDriver().findElement(By.cssSelector("a.btn-lg" +
+                "[href^=\"/butt\"]"));
+        Assert.assertEquals(link.getText(), "Buttons");
     }
 }
