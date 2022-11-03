@@ -54,4 +54,13 @@ public class GroupTeamRocketTest extends BaseTest {
         getDriver().findElement(By.id("about_sidebar_link")).click();
         Assert.assertEquals(getDriver().getCurrentUrl(),"https://saucelabs.com/");
     }
+
+    @Test
+    public void testAboutUs(){
+        getDriver().get("http://automationpractice.com/index.php");
+        getDriver().findElement(
+                By.xpath("//a[@href='http://automationpractice.com/index.php?id_cms=4&controller=cms']"))
+                .click();
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://automationpractice.com/index.php?id_cms=4&controller=cms");
+    }
 }
