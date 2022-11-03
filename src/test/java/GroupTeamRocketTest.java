@@ -54,4 +54,12 @@ public class GroupTeamRocketTest extends BaseTest {
         getDriver().findElement(By.id("about_sidebar_link")).click();
         Assert.assertEquals(getDriver().getCurrentUrl(),"https://saucelabs.com/");
     }
+    @Test
+    public void testLAtimes_RomanS() throws InterruptedException{
+        getDriver().get("https://www.latimes.com/");
+        getDriver().findElement(By.xpath("//body[@class='page-body']/ps-header[@class='page-header-custom-element sticky-top']//span[@class='label']")).click();
+        Thread.sleep(2000);
+        getDriver().findElement(By.xpath("//ps-header/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[6]/div[1]/div[1]/a[1]")).click();
+        Assert.assertEquals(getDriver().getTitle(), "Food - Los Angeles Times");
+    }
 }
