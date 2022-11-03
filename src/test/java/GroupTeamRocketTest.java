@@ -96,6 +96,24 @@ public class GroupTeamRocketTest extends BaseTest {
     }
 
     @Test
+    public void testCheckOut() {
+        String name = "John";
+        String lastName = "Smith";
+        getDriver ().get ("https://www.saucedemo.com");
+        getDriver ().findElement (By.id ("user-name")).sendKeys ("standard_user");
+        getDriver ().findElement (By.id ("password")).sendKeys ("secret_sauce");
+        getDriver ().findElement (By.id ("login-button")).click ();
+        getDriver ().findElement (By.id ("add-to-cart-sauce-labs-backpack")).click ();
+        getDriver ().findElement (By.id ("shopping_cart_container")).click ();
+        getDriver ().findElement (By.id ("checkout")).click ();
+        getDriver ().findElement (By.id ("first-name")).sendKeys (name);
+        getDriver ().findElement (By.id ("last-name")).sendKeys (lastName);
+        getDriver ().findElement (By.id ("postal-code")).sendKeys ("28277");
+        getDriver ().findElement (By.id ("continue")).click ();
+        getDriver ().findElement (By.id ("finish")).click ();
+        Assert.assertEquals (getDriver ().findElement (By.xpath ("//*[@id=\"checkout_complete_container\"]/h2")).getText (), "THANK YOU FOR YOUR ORDER");
+    }
+    @Test
     public void testAddToCartButton() throws InterruptedException{
         getDriver().get("https://www.demoblaze.com");
         getDriver().findElement(By.xpath("//body/div[5]/div/div[1]/div/a[4]")).click();
