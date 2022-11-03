@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -76,4 +77,22 @@ public class JavanistyTest extends BaseTest {
         WebElement text = getDriver().findElement(By.xpath("//li/a[@href='#config']"));
         Assert.assertEquals(text.getText(), "НАСТРОЙКИ");
     }
+
+    @Test
+    public void testThree() throws InterruptedException {
+        getDriver().get("https://healthunify.com/bmicalculator/");
+        Thread.sleep(2000);
+        String text = getDriver().getTitle();
+        String textUrl = getDriver().getCurrentUrl();
+
+        Assert.assertEquals(text, "BMI Calculator");
+        Assert.assertEquals(textUrl, "https://healthunify.com/bmicalculator/");
+        Thread.sleep(4000);
+        getDriver().findElement(By.xpath("//input[@name='wg']")).sendKeys("55");
+        getDriver().findElement(By.xpath("//input[@name='ht']")).sendKeys("60");
+        getDriver().findElement(By.xpath("//input[@value='Calculate']")).click();
+        Thread.sleep(3000);
+        Assert.assertTrue(getDriver().findElement(By.xpath("//input[@class='content']")).isDisplayed());
+    }
+
 }
