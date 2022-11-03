@@ -102,5 +102,6 @@ public class GroupCodeRedTest extends BaseTest {
         Thread.sleep(100);
         String actualModalHeader = getDriver().findElement(By.xpath("/html/body/div/h1")).getText();
         Assert.assertEquals(actualModalHeader,"Modal");
+
     }
 }
