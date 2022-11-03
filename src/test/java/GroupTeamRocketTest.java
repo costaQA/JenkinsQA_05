@@ -70,4 +70,19 @@ public class GroupTeamRocketTest extends BaseTest {
                 .click();
         Assert.assertEquals(getDriver().getCurrentUrl(), "http://automationpractice.com/index.php?id_cms=4&controller=cms");
     }
+
+
+    @Test
+    public void testLoginForm_EZ() {
+        getDriver().get("https://www.grubhub.com/");
+        getDriver().findElement(By.cssSelector("[data-testid='prettyhomepagesignin']")).click();
+        getDriver().findElement(By.cssSelector(".ghs-goToCreateAccount")).click();
+        getDriver().findElement(By.id("firstName")).sendKeys("Vasya");
+        getDriver().findElement(By.id("lastName")).sendKeys("Piterskiy");
+        getDriver().findElement(By.id("email")).sendKeys("vasiliy@gmail.com");
+        getDriver().findElement(By.id("password")).sendKeys("Ababgalamaga1!");
+        getDriver().findElement(By.xpath("//button[@type='submit']")).click();
+
+        Assert.assertTrue(getDriver().findElement(By.xpath("//img[@class='captchaMediaImage']")).isDisplayed());
+    }
 }
