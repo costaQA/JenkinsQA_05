@@ -85,7 +85,16 @@ public class GroupTeamRocketTest extends BaseTest {
 
         Assert.assertTrue(getDriver().findElement(By.xpath("//img[@class='captchaMediaImage']")).isDisplayed());
     }
-   
+
+    @Test
+    public void testGoToTermsAndConditionsPage_AnastasiaYakimova() {
+        getDriver().get ("http://automationpractice.com");
+        getDriver().findElement (By.xpath("//section[@id='block_various_links_footer']/ul/li[6]/a")).click();
+
+        Assert.assertEquals (getDriver().getCurrentUrl (),
+                "http://automationpractice.com/index.php?id_cms=3&controller=cms");
+    }
+
     @Test
     public void testAddToCartButton() throws InterruptedException{
         getDriver().get("https://www.demoblaze.com");
