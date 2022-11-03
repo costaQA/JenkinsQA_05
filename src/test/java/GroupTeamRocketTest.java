@@ -87,6 +87,14 @@ public class GroupTeamRocketTest extends BaseTest {
     }
 
     @Test
+
+    public void testInformationDelivery() {
+        getDriver().get("http://automationpractice.com/index.php");
+        getDriver().findElement(By.cssSelector(".sf-with-ul[title=\"Women\"]")).click();
+        getDriver().findElement(By.cssSelector("[title=\"Delivery\"]")).click();
+
+        Assert.assertEquals(getDriver().getTitle(), "Delivery - My Store");
+}
     public void testGoToTermsAndConditionsPage_AnastasiaYakimova() {
         getDriver().get ("http://automationpractice.com");
         getDriver().findElement (By.xpath("//section[@id='block_various_links_footer']/ul/li[6]/a")).click();
