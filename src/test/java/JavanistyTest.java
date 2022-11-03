@@ -81,11 +81,8 @@ public class JavanistyTest extends BaseTest {
     @Test
     public void testThree() throws InterruptedException {
         getDriver().get("https://healthunify.com/bmicalculator/");
-        Thread.sleep(2000);
-        String text = getDriver().getTitle();
         String textUrl = getDriver().getCurrentUrl();
 
-        Assert.assertEquals(text, "BMI Calculator");
         Assert.assertEquals(textUrl, "https://healthunify.com/bmicalculator/");
         Thread.sleep(4000);
         getDriver().findElement(By.xpath("//input[@name='wg']")).sendKeys("55");
