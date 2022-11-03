@@ -73,7 +73,7 @@ public class SpiritMastersTest extends BaseTest {
         String actualTextInteractions = getDriver().findElement(By.className("main-header")).getText();
         Assert.assertEquals(actualTextInteractions, "Interactions");
     }
-
+    @Ignore
     @Test
     public void test_PK_RedirectToBooksTab(){
         findCard_PK(5).click();
