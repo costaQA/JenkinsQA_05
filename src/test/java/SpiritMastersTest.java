@@ -22,7 +22,7 @@ public class SpiritMastersTest extends BaseTest {
         List<WebElement> category = getDriver().findElements(By.className("card"));
         return category.get(index);
     }
-
+    @Ignore
     @Test
     public void testSwitchToSecondWindow_OlPolezhaeva() {
 
