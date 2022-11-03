@@ -78,17 +78,13 @@ public class JavanistyTest extends BaseTest {
     }
 
     @Test
-    public void testThree() throws InterruptedException {
+    public void testThree() {
         getDriver().get("https://healthunify.com/bmicalculator/");
         String textUrl = getDriver().getCurrentUrl();
-
         Assert.assertEquals(textUrl, "https://healthunify.com/bmicalculator/");
-        Thread.sleep(4000);
         getDriver().findElement(By.xpath("//input[@name='wg']")).sendKeys("55");
         getDriver().findElement(By.xpath("//input[@name='ht']")).sendKeys("60");
         getDriver().findElement(By.xpath("//input[@value='Calculate']")).click();
-        Thread.sleep(3000);
         Assert.assertTrue(getDriver().findElement(By.xpath("//input[@class='content']")).isDisplayed());
     }
-
 }
