@@ -80,7 +80,8 @@ public class JavanistyTest extends BaseTest {
     @Test
     public void testThree() {
         getDriver().get("https://healthunify.com/bmicalculator/");
-        Assert.assertEquals(getDriver().getCurrentUrl(), "https://healthunify.com/bmicalculator/");
+        String textUrl = getDriver().getCurrentUrl();
+        Assert.assertEquals(textUrl, "https://healthunify.com/bmicalculator/");
         getDriver().findElement(By.xpath("//input[@name='wg']")).sendKeys("55");
         getDriver().findElement(By.xpath("//input[@name='ht']")).sendKeys("60");
         getDriver().findElement(By.xpath("//input[@value='Calculate']")).click();
