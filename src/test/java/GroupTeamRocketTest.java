@@ -1,5 +1,4 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import runner.BaseTest;
@@ -64,6 +63,14 @@ public class GroupTeamRocketTest extends BaseTest {
         Assert.assertEquals(getDriver().getTitle(), "Food - Los Angeles Times");
     }
     @Test
+    public void testAboutUs(){
+        getDriver().get("http://automationpractice.com/index.php");
+        getDriver().findElement(
+                        By.xpath("//a[@href='http://automationpractice.com/index.php?id_cms=4&controller=cms']"))
+                .click();
+        Assert.assertEquals(getDriver().getCurrentUrl(), "http://automationpractice.com/index.php?id_cms=4&controller=cms");
+    }
+    @Test
     public void testAddToCartButton() throws InterruptedException{
         getDriver().get("https://www.demoblaze.com");
         getDriver().findElement(By.xpath("//body/div[5]/div/div[1]/div/a[4]")).click();
@@ -72,5 +79,4 @@ public class GroupTeamRocketTest extends BaseTest {
         getDriver().findElement(By.xpath("//body/div[5]/div/div[2]/div[2]/div/a")).click();
         Assert.assertTrue(getDriver().findElement(By.xpath("//body/div[5]/div/div[2]/div[2]/div/a")).isDisplayed ());
     }
-
 }
