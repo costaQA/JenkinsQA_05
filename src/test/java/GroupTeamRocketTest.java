@@ -66,6 +66,7 @@ public class GroupTeamRocketTest extends BaseTest {
     }
 
     @Test
+    @Ignore
     public void testLAtimes_RomanS() throws InterruptedException{
         getDriver().get("https://www.latimes.com/");
         getDriver().findElement(By.xpath("//body[@class='page-body']/ps-header[@class='page-header-custom-element sticky-top']//span[@class='label']")).click();
@@ -159,6 +160,7 @@ public class GroupTeamRocketTest extends BaseTest {
    }
 
    @Test
+   @Ignore
     public void testFindBook_VZ() {
         getDriver().get("https://www.abebooks.com/");
         getDriver().findElement(By.id("rare-books")).click();
