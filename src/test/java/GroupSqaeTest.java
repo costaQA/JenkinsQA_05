@@ -1,7 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import runner.BaseTest;
 
@@ -112,5 +111,23 @@ public class GroupSqaeTest extends BaseTest {
         WebElement actualH2 = getDriver().findElement(By.cssSelector("h2"));
 
         Assert.assertEquals(actualH2.getText(), "Agile Testing and ATDD Automation –  Free Tutorials");
+    }
+    @Test
+    public void testHerokuApp() {
+
+        getDriver().get("https://formy-project.herokuapp.com/");
+
+        WebElement link = getDriver().findElement(By.xpath("//li/a[@href='/autocomplete']"));
+
+        Assert.assertEquals(link.getText(), "Autocomplete");
+    }
+    @Test
+    public void testHerokuAppSearchCheckboxMenu() {
+        getDriver().get("https://formy-project.herokuapp.com/");
+
+        //Thread.sleep(5000);
+        WebElement link1 = getDriver().findElement(By.xpath("//li/a[@href='/checkbox']"));
+
+        Assert.assertEquals(link1.getText(), "Checkbox");
     }
 }
