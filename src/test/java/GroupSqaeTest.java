@@ -129,5 +129,6 @@ public class GroupSqaeTest extends BaseTest {
         WebElement link1 = getDriver().findElement(By.xpath("//li/a[@href='/checkbox']"));
 
         Assert.assertEquals(link1.getText(), "Checkbox");
+        //change01
     }
 }
